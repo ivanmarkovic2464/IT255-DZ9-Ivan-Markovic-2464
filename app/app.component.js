@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', 'app/registracija/registracija.component', 'app/login/login.component', 'app/mainpage/mainpage.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'app/registracija/registracija.component', 'app/login/login.component', 'app/mainpage/mainpage.component', 'app/sobe/sobe.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', 'app/registracija/registrac
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, registracija_component_1, login_component_1, mainpage_component_1;
+    var core_1, router_1, registracija_component_1, login_component_1, mainpage_component_1, sobe_component_1;
     var AppComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', 'angular2/router', 'app/registracija/registrac
             },
             function (mainpage_component_1_1) {
                 mainpage_component_1 = mainpage_component_1_1;
+            },
+            function (sobe_component_1_1) {
+                sobe_component_1 = sobe_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -43,6 +46,7 @@ System.register(['angular2/core', 'angular2/router', 'app/registracija/registrac
                         { path: '/', name: 'MainPage', component: mainpage_component_1.MainPageComponent, useAsDefault: true },
                         { path: '/registracija', name: 'Registracija', component: registracija_component_1.RegistracijaComponent },
                         { path: '/login', name: 'Login', component: login_component_1.LoginComponent },
+                        { path: '/sobe', name: 'Sobe', component: sobe_component_1.Sobe },
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

@@ -1,18 +1,25 @@
 <?php
-include("conn.php");
-
-function proveriKorisnika($k_ime, $lozinka){
+	include("conn.php");
+   function getRooms(){
 global $conn;
-$sql = "SELECT * FROM korisnici WHERE `Korisnicko ime`=? AND `Lozinka`=?";
-$stmt= $conn->prepare($sql);
-$stmt->bind_param('ss',$k_ime,$lozinka);
-$stmt->execute();
-$stmt->store_result();
-if ($stmt->num_rows > 0) {
-return 1;
-} else{
-return 0;;
+$rarray = array();
+$result = mysqli_query($conn, "SELECT * FROM sobe");
+$num_rows = mysqli_num_rows($result);
+$rooms = array();
+if($num_rows > 0)
+{
+while($row = mysqli_fetch_assoc($result)) {
+$one_room = array();
+$one_room['id'] = $row['id'];
+$one_room['tipSobe'] = $row['tipSobe'];
+$one_room['kvadrata'] = $row['kvadrata'];
+$one_room['brojKreveta'] = $row['brojKreveta'];
+$one_room['pogledNa'] = $row['pogledNa'];
+array_push($rooms,$one_room);
 }
-$stmt->close();
+}
+$rarray['rooms'] = $rooms;
+return json_encode($rarray);
+ 
 }
 ?>
